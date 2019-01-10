@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button forwardBtn,backwardsBtn,startBtn,stopBtn,discBtn;
+    Button forwardBtn,backwardsBtn,startBtn,stopBtn,discBtn,cycleBtn;
 
     String address = null;
 
@@ -41,49 +41,61 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        EditText distanceInput = findViewById(R.id.numericTxtInput);
-        EditText timeInput = findViewById(R.id.timeTxtInput);
-        EditText cycleInput = findViewById(R.id.numdutycyclesTxtInput);
-        final String distancse = distanceInput.getText().toString();
-        final String distance = distanceInput.getText().toString();
-        final String time = timeInput.getText().toString();
-        final String dutyCycles = cycleInput.getText().toString();
+        final EditText distanceInput = findViewById(R.id.numericTxtInput);
+        final EditText timeInput = findViewById(R.id.timeTxtInput);
+        final EditText cycleInput = findViewById(R.id.numdutycyclesTxtInput);
+
 
         forwardBtn = findViewById(R.id.forwardBtn);
         backwardsBtn = findViewById(R.id.backwardsBtn);
         startBtn = findViewById(R.id.StartBtn);
         stopBtn = findViewById(R.id.StopBtn);
+        cycleBtn = findViewById(R.id.cycleBtn);
         discBtn = findViewById(R.id.disconnectBtn);
 
 
         new ConnectBT().execute();
 
         forwardBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                sendSignal(distance);
+                String distancea = distanceInput.getText().toString();
+                sendSignal("a"+distancea+"z");
             }
         });
 
         backwardsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSignal(distance);
+                String distanceb = distanceInput.getText().toString();
+                sendSignal("b"+distanceb+"z");
             }
         });
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendCycleSignal(time,dutyCycles);
+                String distance = distanceInput.getText().toString();
+                String time = timeInput.getText().toString();
+                sendSignal("c"+distance+time+"z");
             }
         });
 
+        cycleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String distance = distanceInput.getText().toString();
+                String time = timeInput.getText().toString();
+                String cycle = cycleInput.getText().toString();
+                sendSignal("e"+distance+time+cycle+"z");
+            }
+        });
         stopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Send 0,0 to stop? have arduino do a return function?
-                sendCycleSignal("0","0");
+                sendSignal("dz");
             }
         });
 
