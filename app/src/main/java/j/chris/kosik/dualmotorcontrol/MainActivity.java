@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         EditText distanceInput = findViewById(R.id.numericTxtInput);
         EditText timeInput = findViewById(R.id.timeTxtInput);
         EditText cycleInput = findViewById(R.id.numdutycyclesTxtInput);
-
+        final String distancse = distanceInput.getText().toString();
         final String distance = distanceInput.getText().toString();
         final String time = timeInput.getText().toString();
         final String dutyCycles = cycleInput.getText().toString();
