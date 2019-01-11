@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="00.0"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="viewStart"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="00.0"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="000"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -249,7 +249,7 @@
         app:layout_constraintVertical_bias="0.854" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/cycleTxt"
         android:layout_width="71dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

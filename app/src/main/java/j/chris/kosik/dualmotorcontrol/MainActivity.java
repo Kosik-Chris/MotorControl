@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -26,14 +22,19 @@ public class MainActivity extends AppCompatActivity {
 
     String address = null;
 
+    public Context mainContext;
     private ProgressDialog progress;
-    BluetoothAdapter myBluetooth = null;
-    BluetoothSocket btSocket = null;
-    private boolean isBtConnected = false;
+    public BluetoothAdapter myBluetooth = null;
+    public BluetoothSocket btSocket = null;
+    public boolean isBtConnected = false;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
+    //Create new DialogUtils object
+    DialogsUtils dialog = new DialogsUtils();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mainContext = getApplicationContext();
         super.onCreate(savedInstanceState);
 
         Intent newint = getIntent();
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //Controlled to only be number input
         final EditText distanceInput = findViewById(R.id.numericTxtInput);
         final EditText timeInput = findViewById(R.id.timeTxtInput);
         final EditText cycleInput = findViewById(R.id.numdutycyclesTxtInput);
@@ -56,22 +58,25 @@ public class MainActivity extends AppCompatActivity {
 
         //Connect to Bluetooth
         new ConnectBT().execute();
+        //Instantiate Signal class
+        final SendSignal signal = new SendSignal();
 
+        //TODO: Append the string further before transmission. distance 4 char, pause 4 char, cycle 3 char
         //Define event listeners
         forwardBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String distancea = distanceInput.getText().toString();
-                sendSignal("a"+distancea+"z");
+                String distance = distanceInput.getText().toString();
+                signal.forwardSignal(distance,mainContext);
             }
         });
 
         backwardsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String distanceb = distanceInput.getText().toString();
-                sendSignal("b"+distanceb+"z");
+                String distance = distanceInput.getText().toString();
+                signal.backwardsSignal(distance,mainContext);
             }
         });
 
@@ -80,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String distance = distanceInput.getText().toString();
                 String time = timeInput.getText().toString();
-                sendSignal("c"+distance+time+"z");
+                signal.startSignal(distance,time,mainContext);
             }
         });
 
@@ -90,14 +95,14 @@ public class MainActivity extends AppCompatActivity {
                 String distance = distanceInput.getText().toString();
                 String time = timeInput.getText().toString();
                 String cycle = cycleInput.getText().toString();
-                sendSignal("e"+distance+time+cycle+"z");
+                signal.cycleSignal(distance, time, cycle,mainContext);
             }
         });
         stopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Send 0,0 to stop? have arduino do a return function?
-                sendSignal("dz");
+                signal.stopSignal(mainContext);
             }
         });
 
@@ -108,46 +113,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void sendSignal ( String value ) {
-        if ( btSocket != null ) {
-            try {
-                btSocket.getOutputStream().write(value.toString().getBytes());
-            } catch (IOException e) {
-                msg("Error");
-            }
-        }
-    }
-
-    private void sendCycleSignal(String time, String cycles){
-        if (btSocket != null){
-            try{
-                btSocket.getOutputStream().write(time.toString().getBytes());
-                btSocket.getOutputStream().write(cycles.toString().getBytes());
-            }catch (IOException e){
-                msg("Error");
-            }
-        }
-    }
-
-    private void Disconnect () {
-        if ( btSocket!=null ) {
-            try {
-                btSocket.close();
-                Intent i = new Intent(MainActivity.this, DeviceList.class);
-                startActivity(i);
-            } catch(IOException e) {
-                msg("Error");
-            }
-        }
-
-        finish();
-    }
-
-    private void msg (String s) {
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-    }
-
+    //TODO: Move this over into a seperate instance that can be passed context and used globally
     private class ConnectBT extends AsyncTask<Void, Void, Void> {
         private boolean ConnectSuccess = true;
 
@@ -178,14 +144,30 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (!ConnectSuccess) {
-                msg("Connection Failed. Is it a SPP Bluetooth? Try again.");
+                dialog.msg(mainContext,"Connection Failed. Check Bluetooth Connection Try again.");
                 finish();
             } else {
-                msg("Connected");
+                dialog.msg(mainContext,"Connected");
                 isBtConnected = true;
             }
 
             progress.dismiss();
         }
+    }
+    private void Disconnect () {
+        if ( btSocket!=null ) {
+            try {
+                btSocket.close();
+                Intent i = new Intent(MainActivity.this, DeviceList.class);
+                startActivity(i);
+            } catch(IOException e) {
+                dialog.msg(mainContext,"Error Disconnecting!");
+            }
+        }
+
+        finish();
+    }
+    public BluetoothSocket getBT(){
+        return this.btSocket;
     }
 }
