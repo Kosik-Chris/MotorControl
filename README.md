@@ -1,7 +1,7 @@
 # MotorControl
 Straing Gauge App
 
-##What is it?
+What is this application?
 
 This is an android application used to control a strain gauge testing system.
 
