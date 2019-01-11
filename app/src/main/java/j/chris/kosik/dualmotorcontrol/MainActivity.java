@@ -56,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
         discBtn = findViewById(R.id.disconnectBtn);
 
 
+        //Connect to Bluetooth
         new ConnectBT().execute();
 
+        //Define event listeners
         forwardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
