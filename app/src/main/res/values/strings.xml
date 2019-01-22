@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">MotorControl</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="distance_txt">Cycle Distance</string>
+    <string name="disconnect_txt">Disconnect</string>
+    <string name="mm_txt">mm</string>
+    <string name="pause_txt">Pause Time</string>
+    <string name="sec_txt">Seconds</string>
+    <string name="compressions_txt">Compressions</string>
+    <string name="progress_txt">Cycle progress:</string>
+    <string name="hour_txt">Hour</string>
+    <string name="minute_txt">Minute</string>
+    <string name="second_txt">Second</string>
 
     <!-- Strings related to Settings -->
 
