@@ -25,7 +25,7 @@ import j.chris.kosik.dualmotorcontrol.Utils.StringUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button forwardBtn,backwardsBtn,startBtn,stopBtn,discBtn,cycleBtn;
+    Button stopBtn,discBtn,cycleBtn;
 
     String address = null;
 
@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText cycleInput = findViewById(R.id.numdutycyclesTxtInput);
 
 
-        forwardBtn = findViewById(R.id.forwardBtn);
-        backwardsBtn = findViewById(R.id.backwardsBtn);
-        startBtn = findViewById(R.id.StartBtn);
         stopBtn = findViewById(R.id.StopBtn);
         cycleBtn = findViewById(R.id.cycleBtn);
         discBtn = findViewById(R.id.disconnectBtn);
@@ -75,31 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: Append the string further before transmission. distance 4 char, pause 4 char, cycle 3 char
         //Define event listeners
-        forwardBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String distance = appendString.appendDistance(distanceInput.getText().toString(),mainContext,toast);
-                forwardSignal(distance);
-            }
-        });
-
-        backwardsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String distance = appendString.appendDistance(distanceInput.getText().toString(),mainContext,toast);
-                backwardsSignal(distance);
-            }
-        });
-
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String distance = appendString.appendDistance(distanceInput.getText().toString(),mainContext,toast);
-                String time = appendString.appendDistance(timeInput.getText().toString(),mainContext,toast);
-                startSignal(distance,time);
-            }
-        });
 
         cycleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
