@@ -1,4 +1,4 @@
-package j.chris.kosik.dualmotorcontrol;
+package j.chris.kosik.sensorcontrol;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

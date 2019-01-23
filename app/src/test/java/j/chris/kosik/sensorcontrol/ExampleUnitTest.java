@@ -1,4 +1,4 @@
-package j.chris.kosik.dualmotorcontrol;
+package j.chris.kosik.sensorcontrol;
 
 import org.junit.Test;
 

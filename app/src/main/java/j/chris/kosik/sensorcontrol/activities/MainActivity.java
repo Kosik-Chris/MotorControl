@@ -1,4 +1,4 @@
-package j.chris.kosik.dualmotorcontrol;
+package j.chris.kosik.sensorcontrol.activities;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -24,8 +24,9 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.UUID;
 
-import j.chris.kosik.dualmotorcontrol.Utils.DialogsUtils;
-import j.chris.kosik.dualmotorcontrol.Utils.StringUtils;
+import j.chris.kosik.sensorcontrol.R;
+import j.chris.kosik.sensorcontrol.Utils.DialogsUtils;
+import j.chris.kosik.sensorcontrol.Utils.StringUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+
+
         mainContext = getApplicationContext();
         super.onCreate(savedInstanceState);
 
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         final StringUtils appendString = new StringUtils();
 
         setContentView(R.layout.activity_main);
+
 
 
         //Controlled to only be number input

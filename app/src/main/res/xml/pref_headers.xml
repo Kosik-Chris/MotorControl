@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="j.chris.kosik.dualmotorcontrol.Settings$GeneralPreferenceFragment"
+        android:fragment="j.chris.kosik.sensorcontrol.activities.Settings$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="j.chris.kosik.dualmotorcontrol.Settings$NotificationPreferenceFragment"
+        android:fragment="j.chris.kosik.sensorcontrol.activities.Settings$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="j.chris.kosik.dualmotorcontrol.Settings$DataSyncPreferenceFragment"
+        android:fragment="j.chris.kosik.sensorcontrol.activities.Settings$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 

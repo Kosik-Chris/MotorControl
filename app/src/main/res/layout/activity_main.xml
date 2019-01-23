@@ -4,77 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@android:color/background_dark"
+    tools:context=".activities.MainActivity"
     tools:layout_editor_absoluteY="25dp">
-
-    <EditText
-        android:id="@+id/numericTxtInput"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="232dp"
-        android:ems="10"
-        android:hint="00.0"
-        android:inputType="numberDecimal"
-        android:maxLength="4"
-        android:textAlignment="viewStart"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121" />
 
     <EditText
         android:id="@+id/timeTxtInput"
         android:layout_width="52dp"
-        android:layout_height="40dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="9dp"
+        android:background="@android:color/holo_blue_dark"
         android:ems="10"
         android:hint="00.0"
         android:inputType="numberDecimal"
         android:maxLength="4"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.236" />
+
+    <EditText
+        android:id="@+id/numdutycyclesTxtInput"
+        android:layout_width="52dp"
+        android:layout_height="28dp"
+        android:background="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:hint="000"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.343" />
 
     <Button
         android:id="@+id/StopBtn"
         android:layout_width="104dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/redBtn"
         android:text="Stop"
-        android:textColor="@android:color/background_light"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.454" />
 
-    <EditText
-        android:id="@+id/numdutycyclesTxtInput"
-        android:layout_width="43dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="000"
-        android:inputType="number"
-        android:maxLength="3"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
-
     <TextView
         android:id="@+id/singleAxisTxt"
         android:layout_width="205dp"
-        android:layout_height="36dp"
+        android:layout_height="42dp"
         android:text="@string/distance_txt"
         android:textAlignment="viewStart"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +83,10 @@
     <TextView
         android:id="@+id/cycleControlTxt"
         android:layout_width="199dp"
-        android:layout_height="35dp"
+        android:layout_height="41dp"
         android:text="@string/pause_txt"
         android:textAlignment="viewStart"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,14 +102,15 @@
         android:layout_marginBottom="32dp"
         android:text="@string/mm_txt"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <TextView
         android:id="@+id/timeUnitsTxt"
@@ -121,22 +119,23 @@
         android:layout_marginBottom="32dp"
         android:text="@string/sec_txt"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.249" />
 
     <TextView
         android:id="@+id/numDutyCyclesTxt"
         android:layout_width="215dp"
-        android:layout_height="36dp"
+        android:layout_height="41dp"
         android:text="@string/compressions_txt"
         android:textAlignment="viewStart"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,31 +144,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.331" />
 
-    <Button
-        android:id="@+id/disconnectBtn"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="142dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?attr/actionModeSplitBackground"
-        android:text="@string/disconnect_txt"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.009" />
 
     <Button
         android:id="@+id/cycleBtn"
         android:layout_width="104dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/greenBtn"
         android:text="Cycle"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.033"
@@ -187,14 +175,15 @@
         android:layout_marginTop="8dp"
         android:text="Cycles"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintVertical_bias="0.337" />
 
     <ProgressBar
         android:id="@+id/pb"
@@ -214,6 +203,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/progress_txt"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -229,6 +219,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="248dp"
         android:text="100"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
@@ -244,9 +235,14 @@
         android:text="0"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="352dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655" />
 
     <TextView
         android:id="@+id/minuteTitleTxt"
@@ -256,9 +252,14 @@
         android:text="0"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="352dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655" />
 
     <TextView
         android:id="@+id/secondTitleTxt"
@@ -268,9 +269,14 @@
         android:text="0"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="352dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655" />
 
     <TextView
         android:id="@+id/hoursTxt"
@@ -280,9 +286,14 @@
         android:text="@string/hour_txt"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
 
     <TextView
         android:id="@+id/minuteTxt"
@@ -292,9 +303,14 @@
         android:text="@string/minute_txt"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
 
     <TextView
         android:id="@+id/secondTxt"
@@ -304,9 +320,50 @@
         android:text="@string/second_txt"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
+
+    <EditText
+        android:id="@+id/numericTxtInput"
+        android:layout_width="52dp"
+        android:layout_height="28dp"
+        android:background="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:hint="00.0"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.133" />
+
+    <Button
+        android:id="@+id/disconnectBtn"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="132dp"
+        android:layout_height="38dp"
+        android:background="@color/colorPrimary"
+        android:text="Disconnect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.009" />
 
 
 </android.support.constraint.ConstraintLayout>

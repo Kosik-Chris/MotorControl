@@ -8,5 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
+     <!--Splash screen launcher -->
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    </style>
 
 </resources>

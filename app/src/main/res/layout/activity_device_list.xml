@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
                 android:layout_weight="1"
                 android:text="Select A Pairing Device"
                 android:textColor="@android:color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="168dp"
                 tools:layout_editor_absoluteY="134dp" />
 
@@ -36,23 +38,52 @@
                 android:layout_weight="1"
                 android:background="#4e7583"
                 android:text="Pair"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="190dp"
                 tools:layout_editor_absoluteY="183dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="400dp"
             android:orientation="horizontal">
 
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="206dp"
+                android:background="@android:color/darker_gray"
                 android:footerDividersEnabled="false"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#585151">
+
+                <Button
+                    android:id="@+id/debugBtn"
+                    style="@android:style/Widget.Material.Button.Colored"
+                    android:layout_width="107dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/redBtn"
+                    android:text="Debug Mode"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.021"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
 
     </LinearLayout>

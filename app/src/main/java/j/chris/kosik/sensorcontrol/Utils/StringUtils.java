@@ -1,4 +1,4 @@
-package j.chris.kosik.dualmotorcontrol.Utils;
+package j.chris.kosik.sensorcontrol.Utils;
 
 import android.content.Context;
 import android.widget.Toast;

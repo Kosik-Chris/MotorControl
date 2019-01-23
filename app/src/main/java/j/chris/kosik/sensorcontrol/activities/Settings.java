@@ -1,4 +1,4 @@
-package j.chris.kosik.dualmotorcontrol;
+package j.chris.kosik.sensorcontrol.activities;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,6 +20,8 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 
 import java.util.List;
+
+import j.chris.kosik.sensorcontrol.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -248,6 +250,42 @@ public class Settings extends PreferenceActivity {
             if (id == android.R.id.home) {
                 startActivity(new Intent(getActivity(), Settings.class));
                 return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class SettingsPrefFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.settings_pref);
+            setHasOptionsMenu(true);
+
+            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
+            // to their values. When their values change, their summaries are
+            // updated to reflect the new value, per the Android Design
+            // guidelines.
+            bindPreferenceSummaryToValue(findPreference("display_text"));
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+            String title = item.getTitle().toString();
+            if (id == android.R.id.home) {
+                startActivity(new Intent(getActivity(), Settings.class));
+                return true;
+            }
+            if(title.equals("@string/display_pref_1")){
+                Intent intent;
+                intent = new Intent(getActivity() ,SingleAxis.class);
+                startActivity(intent);
+
+            }
+            if(title.equals("@string/display_pref_2")){
+
             }
             return super.onOptionsItemSelected(item);
         }

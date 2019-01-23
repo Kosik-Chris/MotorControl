@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="j.chris.kosik.dualmotorcontrol">
+    package="j.chris.kosik.sensorcontrol">
 
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -9,11 +9,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Motor Control"
+        android:label="Sensor Control"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DeviceList">
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity android:name=".activities.DeviceList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,22 +21,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".activities.Settings"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
-
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value="j.chris.kosik.sensorcontrol.activities.MainActivity" />
         </activity>
+        <activity
+            android:name=".activities.SingleAxis"
+            android:label="Single Axis Control"
+            android:parentActivityName=".activities.Settings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="j.chris.kosik.sensorcontrol.activities.Settings" />
+        </activity>
+        <activity android:name=".activities.Terminal"></activity>
     </application>
 
 </manifest>

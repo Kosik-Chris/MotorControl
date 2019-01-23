@@ -1,23 +1,30 @@
-package j.chris.kosik.dualmotorcontrol;
+package j.chris.kosik.sensorcontrol.activities;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
+import j.chris.kosik.sensorcontrol.R;
+
 public class DeviceList extends AppCompatActivity {
 
-    Button btnPaired;
+    Button btnPaired,debugBtn;
     ListView devicelist;
 
     private BluetoothAdapter myBluetooth = null;
@@ -26,9 +33,14 @@ public class DeviceList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Make sure to call normal theme back from splash
+        setTheme(R.style.AppTheme);
+        //Begin Device Connection page - Main home page
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
+        debugBtn = (Button) findViewById(R.id.debugBtn);
         btnPaired = (Button) findViewById(R.id.button);
         devicelist = (ListView) findViewById(R.id.listView);
 
@@ -45,6 +57,59 @@ public class DeviceList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pairedDevicesList();
+            }
+        });
+
+        debugBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater li = LayoutInflater.from(DeviceList.this);
+                View promptsView = li.inflate(R.layout.prompts, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        DeviceList.this);
+
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(promptsView);
+
+                final EditText userInput = (EditText) promptsView
+                        .findViewById(R.id.editTextDialogUserInput);
+
+                // set dialog message
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // get user input and set it to result
+                                        // edit text
+
+                                        String response = userInput.getText().toString();
+
+                                        if(response.equals("password")){
+                                            Intent i = new Intent(DeviceList.this, MainActivity.class);
+                                            startActivity(i);
+                                        }
+                                        else{
+
+                                        }
+//                                        debugBtn.setText(userInput.getText());
+
+
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
             }
         });
     }
