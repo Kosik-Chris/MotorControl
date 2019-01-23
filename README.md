@@ -1,4 +1,4 @@
-# MotorControl
+# SensorControl
 Straing Gauge App
 
 What is this application?
